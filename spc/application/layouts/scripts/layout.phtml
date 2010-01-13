@@ -1,0 +1,23 @@
+<?php echo $this->doctype() ?>
+<html xmlns="http://www.w3.org/1990/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Standard Password Checker (SPC)</title>
+    <?php echo $this->headLink()->appendStylesheet('/css/global.css') ?>
+</head>
+<body>
+    <div id="header">
+        <h1>Standard Password Checker (SPC)</h1>
+        <ul>
+            <li><a href="<?php echo $this->url(array('controller' => 'index'), 'default', true) ?>">Home</a></li>
+            <li><a href="<?php echo $this->url(array('controller' => 'spc'), 'default', true) ?>">Test List</a></li>
+            <li><a href="<?php echo $this->url(array('controller' => 'spc',
+                                                     'action'     => 'check'), 'default', true) ?>">Check Password</a></li>
+            <li><a href="<?php echo $this->url(array('controller' => 'check'), 'default', true) ?>">Unused</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <?php echo $this->layout()->content ?>
+    </div>
+</body>
+</html>

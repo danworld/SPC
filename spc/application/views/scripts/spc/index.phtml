@@ -1,0 +1,7 @@
+<h3>Tested Password:</h3>
+<dl>
+    <?php foreach ($this->entries as $entry): ?>
+    <dt><?php echo $this->escape($entry->password) ?></dt>
+    <dd><?php echo $this->escape($entry->hitcount) ?></dd>
+    <?php endforeach ?>
+</dl>
