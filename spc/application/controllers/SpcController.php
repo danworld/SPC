@@ -21,7 +21,7 @@ class SpcController extends Zend_Controller_Action
 
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($request->getPost())) {
-                $spc = new Default_Model_Spc($form->getValues);
+                $spc = new Default_Model_Spc($form->getValues());
                 $spc->save();
                 return $this->_helper->redirector('index');
             }
@@ -31,6 +31,3 @@ class SpcController extends Zend_Controller_Action
     }
 
 }
-
-
-

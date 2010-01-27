@@ -6,7 +6,7 @@ class Default_Form_Spc extends Zend_Form
     {
         $this->setMethod('post');
 
-        $this->addElement('password', 'pw', array(
+        $this->addElement('password', 'password', array(
                 'label'      => 'password',
                 'require'    => true,
                 'filter'    => 'StringTrim',
