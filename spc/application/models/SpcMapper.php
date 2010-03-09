@@ -50,6 +50,18 @@ class Default_Model_SpcMapper
             ->setPassword($row->password)
             ->setHitcount($row->hitcount);
     }
+    
+    public function findByPassword($password, Default_Model_Spc $spc)
+    {
+    	$where = $this->getDbTable()->getAdapter()->quoteInto('password = ?', $password);
+    	$row = $this->getDbTable()->fetchRow($where);
+    	if (empty($row)) {
+    		return;
+    	}
+    	$spc->setPid($row->pid)
+            ->setPassword($row->password)
+            ->setHitcount(++$row->hitcount);
+    }
 
     public function fetchAll()
     {

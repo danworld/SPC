@@ -8,11 +8,10 @@ class CheckController extends Zend_Controller_Action
         /* Initialize action controller here */
     }
 
-    public function indexAction()
+	public function indexAction()
     {
-        // action body
+        $spc = new Default_Model_Spc();
+        $this->view->entries = $spc->fetchAll();
     }
-
-
 }
 

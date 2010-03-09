@@ -101,6 +101,12 @@ class Default_Model_Spc
         $this->getMapper()->find($pid, $this);
         return $this;
     }
+    
+	public function findByPassword($password)
+    {
+        $this->getMapper()->findByPassword($password, $this);
+        return $this;
+    }
 
     public function fetchAll()
     {
