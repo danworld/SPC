@@ -7,7 +7,7 @@ class Default_Form_Spc extends Zend_Form
         $this->setMethod('post');
 
         $this->addElement('password', 'password', array(
-                'label'      => 'password',
+                'label'      => 'Your password is secure?',
                 'require'    => true,
                 'filter'    => 'StringTrim',
                 'validators' => array(
@@ -16,14 +16,17 @@ class Default_Form_Spc extends Zend_Form
                 )
         ));
 
-        $this->addElement('captcha', 'captcha', array(
-                'label'   => 'Write this text.',
-                'require' => true,
-                'captcha' => array('captcha' => 'Figlet',
-                                   'wordLen' => 5,
-                                   'timeout' => 300
-                )
-        ));
+        $require_captcha = false;
+        if ($require_captcha) {
+        	$this->addElement('captcha', 'captcha', array(
+            	    'label'   => 'Write this text.',
+                	'require' => true,
+                	'captcha' => array('captcha' => 'Figlet',
+                    	               'wordLen' => 5,
+                        	           'timeout' => 300
+                	)
+        	));
+        }
 
         $this->addElement('submit', 'submit', array(
                 'label'  => 'check it',

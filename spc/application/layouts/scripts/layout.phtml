@@ -2,19 +2,24 @@
 <html xmlns="http://www.w3.org/1990/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Standard Password Checker (SPC)</title>
-    <?php echo $this->headLink()->appendStylesheet('/css/global.css') ?>
+    <title>SPC - Standard Password Checker</title>
+    <?php echo $this->headLink()->appendStylesheet('/SPC/spc/public/css/global.css') ?>
 </head>
 <body>
-    <div id="header">
-        <h1>Standard Password Checker (SPC)</h1>
-        <ul>
-            <li><a href="<?php echo $this->url(array('controller' => 'index'), 'default', true) ?>">Home</a></li>
-            <li><a href="<?php echo $this->url(array('controller' => 'check'), 'default', true) ?>">Check list</a></li>
-        </ul>
-    </div>
-    <div id="content">
+    <header>
+        <h1>SPC</h1>
+        <h2><span class="initial">S</span>tandard <span class="initial">P</span>assword <span class="initial">C</span>hecker</h2>
+    </header>
+    <article>
         <?php echo $this->layout()->content ?>
-    </div>
+    </article>
+    <footer>
+    	<nav>
+    		<ul>
+            	<li><a href="<?php echo $this->url(array('controller' => 'index'), 'default', true) ?>">Home</a></li>
+            	<li><a href="<?php echo $this->url(array('controller' => 'check'), 'default', true) ?>">Check list</a></li>
+        	</ul>
+    	</nav>
+    </footer>
 </body>
 </html>

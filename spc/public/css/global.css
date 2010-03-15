@@ -1,0 +1,23 @@
+@font-face {
+	font-family:arkitech;
+	src: url('/SPC/spc/public/css/Arkitech_Light.otf');
+}
+
+body {
+	font-family:Arial, Helvetica, sans-serif;
+  	text-align: center;
+}
+
+h1 {
+	font-family:arkitech;
+	font-size:5em;
+}
+
+h2 {
+	font-family:arkitech;
+	font-size:0.6em;
+}
+
+.initial {
+	font-size:2em;
+}
