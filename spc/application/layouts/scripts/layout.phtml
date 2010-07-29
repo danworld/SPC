@@ -7,18 +7,17 @@
 </head>
 <body>
     <header>
-        <h1>SPC</h1>
-        <h2><span class="initial">S</span>tandard <span class="initial">P</span>assword <span class="initial">C</span>hecker</h2>
+        <h1><acronym title="Standard Password Checker">SPC</acronym> <p>standard password checker</p></h1>
     </header>
     <article>
         <?php echo $this->layout()->content ?>
     </article>
     <footer>
     	<nav>
-    		<ul>
+            <ul>
             	<li><a href="<?php echo $this->url(array('controller' => 'index'), 'default', true) ?>">Home</a></li>
             	<li><a href="<?php echo $this->url(array('controller' => 'check'), 'default', true) ?>">Check list</a></li>
-        	</ul>
+            </ul>
     	</nav>
     </footer>
 </body>

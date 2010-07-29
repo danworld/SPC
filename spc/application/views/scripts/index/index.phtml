@@ -1,6 +1,7 @@
 <?php
     $this->form->setAction($this->url());
-    echo $this->form;
-    echo $this->password;
-    echo $this->hitcount;
+    echo '<section id="c">'.$this->form.'</section>';
+    if ($this->password) {
+        echo '<section>The password ('.$this->password.') security factor is '.$this->hitcount.'.</section>';
+    }
 ?>

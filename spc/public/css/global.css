@@ -1,23 +1,48 @@
 @font-face {
-	font-family:arkitech;
-	src: url('/SPC/spc/public/css/Arkitech_Light.otf');
+    font-family:arkitech;
+    src: url('/SPC/spc/public/css/Arkitech_Light.otf');
 }
 
 body {
-	font-family:Arial, Helvetica, sans-serif;
-  	text-align: center;
+    font-family:Arial, Helvetica, sans-serif;
+    text-align: center;
 }
 
 h1 {
-	font-family:arkitech;
-	font-size:5em;
+    font-size:0.9em;
+    margin:50px;
+
 }
 
-h2 {
-	font-family:arkitech;
-	font-size:0.6em;
+h1 acronym {
+    font-family:arkitech;
+    font-size:5em;
+    border-bottom:none;
 }
 
-.initial {
-	font-size:2em;
+h1 p {
+    font-size:1.2em;
+    font-variant:small-caps;
+    font-weight:100;
+    text-transform:capitalize;
+    margin: -15px 0 50px;
+    color:#222;
+}
+
+nav ul {
+    padding-left:0;
+}
+
+footer nav li {
+    display:inline;
+    margin: 0 2px;
+    font-size:0.8em;
+}
+
+.errors {
+    color:#f11;
+}
+
+#c dd {
+    margin-left:0;
 }
