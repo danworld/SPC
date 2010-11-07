@@ -1,5 +1,8 @@
 <?php
 
+define('ENV_DEVELOPMENT', 'development');
+define('ENV_TESTING',     'testing');
+
 define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
 
 set_include_path(implode(PATH_SEPARATOR, array(
@@ -12,7 +15,10 @@ Zend_Loader_Autoloader::getInstance();
 
 $getopt = new Zend_Console_Getopt(array(
     'withdata|w' => 'Load database with sample data',
-    'env|e-s'    => 'Application environment for which to create database (defaults to development)',
+    'file|f'     => 'Load data from file',
+    'env|e-s'    => 'Application environment for which to create database '
+                        .ENV_DEVELOPMENT.'|'
+	                .ENV_TESTING.' (defaults to '.ENV_DEVELOPMENT.')',
     'help|h'     => 'Help -- usage message'
 ));
 
@@ -29,9 +35,10 @@ if ($getopt->getOption('h')) {
 }
 
 $with_data = $getopt->getOption('w');
+$load_file = $getopt->getOption('f');
 $env       = $getopt->getOption('env');
 
-define('APPLICATION_ENV', (null === $env) ? 'development' : $env);
+define('APPLICATION_ENV', (null === $env) ? ENV_DEVELOPMENT : $env);
 
 $application = new Zend_Application(
     APPLICATION_ENV,
@@ -42,8 +49,8 @@ $bootstrap = $application->getBootstrap();
 $bootstrap->bootstrap('db');
 $db_adapter = $bootstrap->getResource('db');
 
-if ('testing' == APPLICATION_ENV) {
-    echo 'Writing Database Guestbook in (control-c to cancel): ' .PHP_EOL;
+if (ENV_TESTING == APPLICATION_ENV) {
+    echo 'Writing Database (control-c to cancel): '.PHP_EOL;
     for ($x = 5; $x > 0; $x--) {
         echo $x . "\r"; sleep(1);
     }
@@ -53,7 +60,7 @@ try {
     $schema_sql = file_get_contents(dirname(__FILE__) . '/schema.sql');
     $db_adapter->getConnection()->exec($schema_sql);
 
-    if ('testing' != APPLICATION_ENV) {
+    if (ENV_TESTING != APPLICATION_ENV) {
         echo PHP_EOL;
         echo 'Database Created';
         echo PHP_EOL;
@@ -62,8 +69,15 @@ try {
     if ($with_data) {
         $data_sql = file_get_contents(dirname(__FILE__) . '/data.sql');
         $db_adapter->getConnection()->exec($data_sql);
-        if ('testing' != APPLICATION_ENV) {
+        if (ENV_TESTING != APPLICATION_ENV) {
             echo 'Database Loaded.';
+            echo PHP_EOL;
+        }
+    }
+
+    if ($load_file) {
+        if (ENV_TESTING != APPLICATION_ENV) {
+            echo 'File Loaded.';
             echo PHP_EOL;
         }
     }

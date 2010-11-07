@@ -12,4 +12,10 @@
             </exclude>
         </whitelist>
     </filter>
+
+    <logging>
+        <log type="coverage-html" target="./log/report" charset="UTF-8"
+            yui="true" highlight="true" lowUpperBound="50" highLowerBound="80" />
+        <log type="testbox" target="./log/testbox.html" />
+    </logging>
 </phpunit>
